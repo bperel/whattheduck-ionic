@@ -1,8 +1,8 @@
 <template>
-  <ion-page
+  <ion-page style="display: block"
     ><div id="cameraPreview"></div>
-    <img v-if="showImage" src="/person.jpeg" style="width: 100px; height: 100px" @load="onImageLoaded(canvas!)" />
-    <canvas ref="canvas" style="width: 400px; height: 200px" />
+    <img v-if="showImage" src="/covers.png" style="width: 100px; height: 100px" @load="onImageLoaded(canvas!)" />
+    <canvas ref="canvas" style="width: 800px; height: 400px" />
     <div class="overlay">
       <ion-button @click="takePhoto"> <ion-icon :ios="apertureOutline" :md="apertureSharp"></ion-icon></ion-button>
     </div>
@@ -19,7 +19,7 @@ import { apertureOutline, apertureSharp } from 'ionicons/icons';
 import axios from 'axios';
 import { POST__collection__issues__multiple, PUT__cover_id__search } from 'ducksmanager/types/routes';
 import cv from '@techstark/opencv-js';
-import { loadHaarFaceModels, onImageLoaded } from '~/composables/useFaceDetection';
+import { onImageLoaded } from '~/composables/useCoverDetection';
 
 const showImage = ref(false);
 
@@ -35,9 +35,8 @@ function dataURIToBlob(dataURI: string) {
   return new Blob([ia], { type: mimeString });
 }
 onMounted(async () => {
-  loadHaarFaceModels().then(() => {
-    showImage.value = true;
-  });
+  showImage.value = true;
+
   const cameraPreviewOptions: CameraPreviewOptions = {
     parent: 'cameraPreview'!,
     position: 'rear',
@@ -58,7 +57,7 @@ console.log(Object.keys(cv).filter((key) => !key.includes('dynCall')));
 </script>
 <style lang="scss" scoped>
 #cameraPreview {
-  height: 100%;
+  height: 0; //100%;
   display: flex;
   justify-content: center;
   border: 1px solid brown;
