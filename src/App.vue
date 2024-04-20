@@ -19,11 +19,10 @@ import type { RouteMeta } from '~/router';
 import { Storage } from '@ionic/storage';
 import { dmSocketInjectionKey } from '~web/src/composables/useDmSocket';
 
-console.log('!');
 const session = {
     getToken: async () => token.value,
     clearSession: () => {
-      token.value = undefined;
+      token.value = null;
       Cookies.remove('token');
       new Storage().clear();
     },
@@ -39,7 +38,8 @@ const session = {
     },
   }),
   onConnectError = (e: Error) => {
-    if (e.message.indexOf('jwt expired') !== -1) {
+    debugger;
+    if (/No token provided/.test(e.message) || /jwt expired/.test(e.message)) {
       session.clearSession();
     }
   };

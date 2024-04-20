@@ -1,3 +1,23 @@
+/* Core CSS required for Ionic components to work properly */
+import '@ionic/vue/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/vue/css/normalize.css';
+import '@ionic/vue/css/structure.css';
+import '@ionic/vue/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/vue/css/padding.css';
+import '@ionic/vue/css/float-elements.css';
+import '@ionic/vue/css/text-alignment.css';
+import '@ionic/vue/css/text-transformation.css';
+import '@ionic/vue/css/flex-utils.css';
+import '@ionic/vue/css/display.css';
+
+/* Theme variables */
+import '~/theme/variables.scss';
+import '~/theme/global.scss';
+
 import { IonicVue } from '@ionic/vue';
 import { createPinia } from 'pinia';
 import { i18n } from '~web';
@@ -9,33 +29,13 @@ import sv from '~translations/sv.json';
 
 import { useSocket } from '~socket.io-client-services/index';
 
-import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { defineSetupVue3 } from '@histoire/plugin-vue';
-import './histoire.css';
 
 export const setupVue3 = defineSetupVue3(({ app }) => {
-  defineCustomElements(window);
-
-  if (!window.CustomEvent) {
-    // Create only if it doesn't exist
-    (function () {
-      function CustomEvent(event, params) {
-        params = params || { bubbles: false, cancelable: false, detail: undefined };
-        var evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-        return evt;
-      }
-
-      CustomEvent.prototype = window.Event.prototype;
-
-      window.CustomEvent = CustomEvent;
-    })();
-  }
-
   app
     .use(IonicVue)
     .use(router)
     .use(createPinia())
-    .use(i18n('en', { en, sv }).instance)
+    .use(i18n('fr', { en, sv }).instance)
     .provide('socket', useSocket(import.meta.env.VITE_DM_SOCKET_URL));
 });

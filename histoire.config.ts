@@ -5,5 +5,5 @@ export default defineConfig({
   plugins: [HstVue()],
   tree: { file: 'path' },
   storyMatch: ['./src/components/*.story.vue'],
-  setupFile: '/histoire.setup.ts',
+  setupFile: 'histoire.setup.ts',
 });

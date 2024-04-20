@@ -35,6 +35,7 @@ defineSlots<{
 }>();
 
 const onChange = (event: Event & { detail: { checked: boolean } }, callback: () => void) => {
+  debugger
   if (event.detail.checked) {
     callback();
   } else {

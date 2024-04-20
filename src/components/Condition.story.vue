@@ -5,5 +5,7 @@
   ></Story>
 </template>
 <script setup lang="ts">
+import Condition from './Condition.vue';
+
 // import { issue_condition } from '~prisma-clients/client_dm';
 </script>
