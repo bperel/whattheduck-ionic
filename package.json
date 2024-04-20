@@ -14,7 +14,8 @@
     "ionic:build": "npm run build",
     "preview": "vite preview",
     "test:e2e": "cypress run",
-    "test:unit": "vitest"
+    "test:unit": "vitest",
+    "story:dev": "histoire dev"
   },
   "dependencies": {
     "@capacitor-community/camera-preview": "^5.0.0",
@@ -45,8 +46,8 @@
     "universal-cookie": "^7.1.4",
     "vue": "^3.4.23",
     "vue-chartjs": "^5.3.1",
-    "vue-i18n": "^9.13.0",
-    "vue-router": "^4.3.1",
+    "vue-i18n": "^9.13.1",
+    "vue-router": "^4.3.2",
     "~dm-types": "workspace:*",
     "~prisma-clients": "workspace:*",
     "~socket.io-client-services": "workspace:*",
@@ -55,6 +56,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "next",
+    "@histoire/plugin-vue": "^0.17.17",
     "@ionic/prettier-config": "^4.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^18.19.31",
@@ -63,7 +65,7 @@
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.5",
     "concurrently": "^8.2.2",
-    "cypress": "^13.7.3",
+    "cypress": "^13.8.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -71,6 +73,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-unused-imports": "^3.1.0",
     "eslint-plugin-vue": "^9.25.0",
+    "histoire": "^0.17.17",
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "tslib": "^2.6.2",
@@ -78,7 +81,7 @@
     "typescript-eslint": "^7.7.0",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",
-    "vite": "^5.2.9",
+    "vite": "^5.2.10",
     "vitest": "^1.5.0",
     "vue-tsc": "^2.0.13"
   },

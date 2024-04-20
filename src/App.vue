@@ -19,6 +19,7 @@ import type { RouteMeta } from '~/router';
 import { Storage } from '@ionic/storage';
 import { dmSocketInjectionKey } from '~web/src/composables/useDmSocket';
 
+console.log('!');
 const session = {
     getToken: async () => token.value,
     clearSession: () => {
